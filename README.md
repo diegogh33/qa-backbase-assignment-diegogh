@@ -14,3 +14,8 @@ If you want, you can:
 
 * remove the entire content in this `README` file to add any relevant information
 * remove the instructions folder.
+
+## How to deliver the technical assignment
+
+Please, use this repository to develop your technical assignment. You can remove or move all the content.
+As soon as you finish, contact the tech recruiter giving the feedback you finish it.
