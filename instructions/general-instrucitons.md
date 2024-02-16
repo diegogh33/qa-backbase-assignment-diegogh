@@ -51,11 +51,12 @@ All the functionalities bellow are implemented in the API and Web layers:
 
 ### API layer
 
-The API endpoints and JSON return Objects are described in the [Api Specs](api-specs.md) document.
+The API endpoints and JSON return Objects are described in the [Api Specs](/instructions/specs/api-specs.md) document.
 
 ### Web Layer
 
-The URLs, user to authenticate and basic functionalities descriptions are placed in the [Web Specs](web-specs.md)
+The URLs, user to authenticate and basic functionalities descriptions are placed in
+the [Web Specs](/instructions/specs/web-specs.md)
 document.
 
 ### How to start the application
