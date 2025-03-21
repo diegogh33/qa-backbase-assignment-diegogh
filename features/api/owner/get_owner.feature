@@ -1,4 +1,4 @@
-Feature: Tests for the Owner service in Spring PetClinic
+Feature: Tests for getting Owners in Spring PetClinic
 
   Scenario: Listing all pet owners
     Given The owner service is ready to use
