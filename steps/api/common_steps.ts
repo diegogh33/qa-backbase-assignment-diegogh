@@ -9,5 +9,5 @@ Given('the service is ready to use', async function () {
 });
 
 Then('the operation is successful with status code {int}', async function (statusCode) {
-  expect(this.response.status).toBe(statusCode);
+  expect(this.response.status()).toBe(statusCode);
 });

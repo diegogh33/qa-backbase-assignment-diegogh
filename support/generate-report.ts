@@ -8,8 +8,8 @@ const options = {
     scenarioTimestamp: true,
     launchReport: true,
     metadata: {
-        "Test Environment": "STAGING",
-        "Browser": "N/A - API Testing",
+        "Test Environment": "QA assigment",
+        "Browser": "UI - API Testing",
         "Platform": process.platform,
         "Executed": "Local"
     }

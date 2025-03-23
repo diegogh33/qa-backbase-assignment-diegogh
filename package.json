@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test_all": "npm run test_UI && npm run test_API",
-    "test_UI": "npx cucumber-js features/ui --require ./support/hooks.ts --require ./steps/ui/*.ts --tags @TEST",
+    "test_UI": "npx cucumber-js features/ui --require ./support/hooks.ts --require ./steps/ui/*.ts --format json:reports/cucumber-report.json--tags @TEST",
     "test_API": "npx cucumber-js features/api --require-module ts-node/register --require ./steps/api/*.ts --format json:reports/cucumber-report.json --tags @TEST",
     "report": "ts-node ./support/generate-report.ts"
   },

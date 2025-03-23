@@ -204,3 +204,11 @@ Then('The action fails with confirmation code {int} because no ID was provided',
   console.log('Response:', body);
   expect(this.response.status()).toBe(statusCode);
 });
+
+Then('the response indicates there is no owner with that id', async function () {
+  const body = await this.response.json();
+  expect(body.error).toBe('Internal Server Error');
+  expect(body.message).toBe('No value present');
+  expect(body).toHaveProperty('path');
+
+});

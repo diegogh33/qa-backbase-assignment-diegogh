@@ -1,5 +1,6 @@
 Feature: Owner Service API - Retrieval
 
+  @DEFECT
   Scenario: Listing all pet owners
     Given the service is ready to use
     When The user retrieves the list of pet owners
@@ -8,9 +9,15 @@ Feature: Owner Service API - Retrieval
 
   Scenario: Getting details of a specific pet owner
     Given the service is ready to use
-    When The user retrieves the details of the pet owner with ID 12
+    When The user retrieves the details of the pet owner with ID 10
     Then the operation is successful with status code 200
-    And The response includes the details of the pet owner with ID 12
+    And The response includes the details of the pet owner with ID 10
+
+  Scenario: Getting details of a non-existent pet owner
+    Given the service is ready to use
+    When The user retrieves the details of the pet owner with ID 77
+    Then the operation is successful with status code 500
+    And the response indicates there is no owner with that id
 
   Scenario: Looking up a non-existent pet owner
     Given the service is ready to use
