@@ -1,7 +1,7 @@
 import { When, Then } from '@cucumber/cucumber';
 import { expect, Page } from '@playwright/test';
-import { visitLocators } from '../../helpers/visit_locators';
-import { ownerLocators } from '../../helpers/owner_locators';
+import { visitLocators } from '../../helpers/locators/visit_locators';
+import { ownerLocators } from '../../helpers/locators/owner_locators';
 import { urls } from '../../config/urls';
 import { petOwner } from '../api/visit_steps'; // Import petOwner
 

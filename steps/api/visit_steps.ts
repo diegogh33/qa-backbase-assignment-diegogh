@@ -1,4 +1,4 @@
-import { Given, When, Then, DataTable, setDefaultTimeout } from '@cucumber/cucumber';
+import { Given } from '@cucumber/cucumber';
 import { expect, Page } from '@playwright/test';
 import config from '../../playwright.config';
 import fetch from 'node-fetch';
@@ -15,8 +15,6 @@ const baseUrl = config.use?.baseURL || 'http://localhost:8080';
 
 // Global variable to store petOwner name
 let petOwner: string = '';
-
-setDefaultTimeout(50000);
 
 Given('a visit is added for owner with ID {int} and pet with ID {int} with date {string} and description {string}', async function (
   ownerId: number,

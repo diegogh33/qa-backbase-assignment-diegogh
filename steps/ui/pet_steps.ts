@@ -1,7 +1,7 @@
-import { When, Then, setDefaultTimeout } from '@cucumber/cucumber';
+import { When, Then } from '@cucumber/cucumber';
 import { expect, Page } from '@playwright/test';
-import { ownerLocators } from '../../helpers/owner_locators';
-import { petLocators } from '../../helpers/pet_locators';
+import { ownerLocators } from '../../helpers/locators/owner_locators';
+import { petLocators } from '../../helpers/locators/pet_locators';
 
 interface PetClinicWorld {
   page: Page;

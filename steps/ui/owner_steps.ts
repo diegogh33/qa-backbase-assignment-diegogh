@@ -1,7 +1,7 @@
 import { When, Then, DataTable } from '@cucumber/cucumber';
 import { expect, Page } from '@playwright/test';
-import { ownerLocators } from '../../helpers/owner_locators';
-import { navBarLocators } from '../../helpers/navBar_locators';
+import { ownerLocators } from '../../helpers/locators/owner_locators';
+import { navBarLocators } from '../../helpers/locators/navBar_locators';
 
 interface PetClinicWorld {
   page: Page;

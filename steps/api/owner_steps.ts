@@ -181,10 +181,6 @@ Then('The action fails with confirmation code {int} because the ID is invalid', 
   expect(this.response.status()).toBe(statusCode);
 });
 
-Then('The operation is successful with status code {int}', async function (statusCode) {
-  expect(this.response.status()).toBe(statusCode);
-});
-
 Then('The action fails with confirmation code {int} because the first name is missing', async function (statusCode) {
   const body = await this.response.text(); // Usamos text() por si no hay JSON
   console.log('Response:', body);
