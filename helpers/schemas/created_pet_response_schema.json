@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "name": { "type": "string" },
+    "birthDate": { "type": "string", "format": "date" },
+    "type": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" }
+      },
+      "required": ["name"]
+    }
+  },
+  "required": ["id", "name", "birthDate", "type"]
+}

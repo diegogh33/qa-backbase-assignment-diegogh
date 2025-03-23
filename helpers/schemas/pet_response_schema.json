@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "name": { "type": "string" },
+    "owner": { "type": "string" },
+    "birthDate": { "type": "string" },
+    "type": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" }
+      },
+      "required": ["id", "name"]
+    }
+  },
+  "required": ["id", "name", "owner", "birthDate", "type"]
+}
