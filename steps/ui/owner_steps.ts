@@ -23,7 +23,7 @@ When('the user looks for {string} in the owners table', async function (this: Pe
   await this.page.click(ownerLinkLocator);
 });
 
-Then('the user should see {string} listed in the table', async function (this: PetClinicWorld, ownerName: string) {
+Then('the user sees {string} listed in the table', async function (this: PetClinicWorld, ownerName: string) {
   // Get all Name column cells and check their text content
   const nameCells = await this.page.locator(ownerLocators.nameColumnCells).allTextContents();
   const found = nameCells.some((text) => text.trim() === ownerName);

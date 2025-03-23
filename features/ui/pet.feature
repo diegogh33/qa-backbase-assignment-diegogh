@@ -8,7 +8,7 @@ Feature: PetClinic Pet Management
     Then the user sees "Jon Snow" listed in the owners table
     When the user enters into "Jon Snow" details
     And the user adds a pet named "Bolita" with type "dog" and birth date "15/01/2023"
-    Then the user should see "Bolita" listed as a pet for "Jon Snow"
+    Then the user sees "Bolita" listed as a pet for "Jon Snow"
 
 
   @DEFECT
@@ -16,4 +16,4 @@ Feature: PetClinic Pet Management
     Given the PetClinic application is open
     When the user looks for "Maria Escobito" in the owners table
     And the user adds a pet named "Slither" with type "snake" and birth date "01/12/2027"
-    Then the user should not see "Slither" listed as a pet for "Maria Escobito"
+    Then the user does not see "Slither" listed as a pet for "Maria Escobito"

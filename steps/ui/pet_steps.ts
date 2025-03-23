@@ -25,7 +25,7 @@ When('the user adds a pet named {string} with type {string} and birth date {stri
   await this.page.click(ownerLocators.submitButton);
 });
 
-Then('the user should see {string} listed as a pet for {string}', async function (this: PetClinicWorld, petName: string, ownerName: string) {
+Then('the user sees {string} listed as a pet for {string}', async function (this: PetClinicWorld, petName: string, ownerName: string) {
   // Wait for the "Owner Information" title to ensure we're on the right page
   await this.page.waitForSelector(ownerLocators.ownerInfoTitle);
   const titleText = await this.page.textContent(ownerLocators.ownerInfoTitle);
@@ -37,7 +37,7 @@ Then('the user should see {string} listed as a pet for {string}', async function
   expect(petFound, `Pet "${petName}" should be listed for owner "${ownerName}"`).toBe(true);
 });
 
-Then('the user should not see {string} listed as a pet for {string}', async function (this: PetClinicWorld, petName: string, ownerName: string) {
+Then('the user does not see {string} listed as a pet for {string}', async function (this: PetClinicWorld, petName: string, ownerName: string) {
   await this.page.waitForSelector(ownerLocators.ownerInfoTitle);
   const titleText = await this.page.textContent(ownerLocators.ownerInfoTitle);
   expect(titleText).toBe('Owner Information');
