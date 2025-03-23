@@ -1,7 +1,6 @@
 {
   "name": "diegogarrido",
   "version": "1.0.0",
-  "description": "We are glad you accept this task!",
   "main": "index.js",
   "scripts": {
     "test:api": "npx playwright test --project=api",
@@ -12,8 +11,8 @@
     "test:pets-ui": "npx playwright test e2e/ui/specs/petsTests.spec.ts",
     "test:visits-ui": "npx playwright test e2e/ui/specs/visitsTests.spec.ts",
     "test:all": "npx playwright test",
-    "testUI": "npx cucumber-js --require ./support/world.ts --require ./support/hooks.ts --require ./steps/**/*.ts",
-    "testAPI": "npx cucumber-js --require-module ts-node/register --require ./steps/*/*.ts --format json:reports/cucumber-report.json",
+    "testUI": "npx cucumber-js --require ./support/hooks.ts --require ./steps/ui/*.ts --tags @TEST",
+    "testAPI": "npx cucumber-js --require-module ts-node/register --require ./steps/api/*.ts --format json:reports/cucumber-report.json --tags @TEST",
     "report": "ts-node ./support/generate-report.ts"
   },
   "keywords": [],
@@ -29,6 +28,7 @@
     "ajv-formats": "^3.0.1",
     "cucumber": "^6.0.7",
     "cucumber-html-reporter": "^7.2.0",
+    "node-fetch": "^3.3.2",
     "playwright": "^1.51.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
