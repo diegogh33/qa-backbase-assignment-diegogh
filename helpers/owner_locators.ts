@@ -1,4 +1,4 @@
-export const ownersLocators = {
+export const ownerLocators = {
   //owners
   ownersTable: "table",
   searchFilter: '[placeholder="Search Filter"]',
