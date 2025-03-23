@@ -1,5 +1,6 @@
 export const ownerLocators = {
   //owners
+  ownerTitle: "owner-list>h2:first-child",
   ownersTable: "table",
   searchFilter: '[placeholder="Search Filter"]',
   nameColumnCells: "table >> tr >> td:nth-child(1)", // Assuming Name is first column
@@ -13,5 +14,6 @@ export const ownerLocators = {
 
   //owner information
   addPetButton: "text=Add New Pet",
-  ownerInfoTitle: 'owner-details>h2:first-child',
+  ownerInfoTitle: "owner-details>h2:first-child",
+  ownerName: '//table[contains(@class, "table-striped")]//b',
 };
