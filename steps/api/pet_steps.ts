@@ -1,21 +1,17 @@
-import {When, Then } from '@cucumber/cucumber';
+import { When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
-import fetch from 'node-fetch';
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
 import Ajv from 'ajv';
-import config from '../../playwright.config';
 
 const ajv = new Ajv();
-const baseUrl = config.use?.baseURL || 'http://localhost:8080';
 
 When('the user requests the pet details for owner with ID {int} and pet with ID {int}', async function (
   this: any,
   ownerId: number,
   petId: number
 ) {
-  const response = await fetch(`${baseUrl}/owners/${ownerId}/pets/${petId}`, {
-    method: 'GET',
+  const response = await this.apiContext.get(`/owners/${ownerId}/pets/${petId}`, {
     headers: { 'Content-Type': 'application/json' },
   });
   this.response = response;
@@ -29,11 +25,11 @@ When('the user adds a new pet for owner with ID {int} with the {string} details'
 ) {
   const bodyPath = resolve(__dirname, '../../data', bodyFile);
   const body = JSON.parse(readFileSync(bodyPath, 'utf8'));
-  const response = await fetch(`${baseUrl}/owners/${ownerId}/pets`, {
-    method: 'POST',
+  const response = await this.apiContext.post(`/owners/${ownerId}/pets`, {
+    data: body,
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
   });
+  
   this.response = response;
   this.responseBody = await response.json();
 });
@@ -46,12 +42,10 @@ When('the user updates the pet with ID {int} for owner with ID {int} with the {s
 ) {
   const bodyPath = resolve(__dirname, '../../data', bodyFile);
   const body = JSON.parse(readFileSync(bodyPath, 'utf8'));
-  const response = await fetch(`${baseUrl}/owners/${ownerId}/pets/${petId}`, {
-    method: 'PUT',
+  this.response = await this.apiContext.put(`/owners/${ownerId}/pets/${petId}`, {
+    data: body,
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
   });
-  this.response = response;
 });
 
 Then('the response should match the pet schema', async function (this: any) {

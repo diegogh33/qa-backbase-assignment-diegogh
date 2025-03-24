@@ -5,10 +5,10 @@ import { expect } from '@playwright/test';
 
 When('the user adds a pet owner using the data from {string}', async function (filePath) {
   const fileContent = await fs.readFile(filePath, 'utf-8');
-  const jsonData = JSON.parse(fileContent);
-  console.log('Adding a pet owner with details:', jsonData);
+  const body = JSON.parse(fileContent);
+  console.log('Adding a pet owner with details:', body);
   this.response = await this.apiContext.post('/owners', {
-    data: jsonData,
+    data: body,
     headers: { 'Content-Type': 'application/json' }
   });
   console.log('Result received:', this.response.status());
@@ -28,10 +28,10 @@ When('the user retrieves the details of the pet owner with ID {int}', async func
 
 When('the user updates the pet owner with ID {int} using the data from {string}', async function (ownerId, filePath) {
   const fileContent = await fs.readFile(filePath, 'utf-8');
-  const jsonData = JSON.parse(fileContent);
-  console.log('Updating pet owner ID:', ownerId, 'with details:', jsonData);
+  const body = JSON.parse(fileContent);
+  console.log('Updating pet owner ID:', ownerId, 'with details:', body);
   this.response = await this.apiContext.put(`/owners/${ownerId}`, {
-    data: jsonData,
+    data: body,
     headers: { 'Content-Type': 'application/json' }
   });
   console.log('Result received:', this.response.status());
@@ -57,16 +57,16 @@ When('the user looks up the pet owner with ID {string}', async function (ownerId
 
 When('the user looks up the pet owner with an empty ID', async function () {
   console.log('Looking up pet owner with an empty ID');
-  this.response = await this.apiContext.get('/owners/'); // Sin ID, termina en "/"
+  this.response = await this.apiContext.get('/owners/'); 
   console.log('Result received:', this.response.status());
 });
 
 When('the user tries to add a pet owner with details from {string}', async function (filePath) {
   const fileContent = await fs.readFile(filePath, 'utf-8');
-  const jsonData = JSON.parse(fileContent);
-  console.log('Trying to add a pet owner with details:', jsonData);
+  const body = JSON.parse(fileContent);
+  console.log('Trying to add a pet owner with details:', body);
   this.response = await this.apiContext.post('/owners', {
-    data: jsonData,
+    data: body,
     headers: { 'Content-Type': 'application/json' }
   });
   console.log('Result received:', this.response.status());
@@ -75,7 +75,7 @@ When('the user tries to add a pet owner with details from {string}', async funct
 When('the user tries to add a pet owner without providing any details', async function () {
   console.log('Trying to add a pet owner without any details');
   this.response = await this.apiContext.post('/owners', {
-    data: null, // Sin cuerpo
+    data: null,
     headers: { 'Content-Type': 'application/json' }
   });
   console.log('Result received:', this.response.status());
@@ -83,10 +83,10 @@ When('the user tries to add a pet owner without providing any details', async fu
 
 When('the user tries to update the pet owner with ID {int} using details from {string}', async function (ownerId, filePath) {
   const fileContent = await fs.readFile(filePath, 'utf-8');
-  const jsonData = JSON.parse(fileContent);
-  console.log('Trying to update pet owner ID:', ownerId, 'with details:', jsonData);
+  const body = JSON.parse(fileContent);
+  console.log('Trying to update pet owner ID:', ownerId, 'with details:', body);
   this.response = await this.apiContext.put(`/owners/${ownerId}`, {
-    data: jsonData,
+    data: body,
     headers: { 'Content-Type': 'application/json' }
   });
   console.log('Result received:', this.response.status());
@@ -94,10 +94,10 @@ When('the user tries to update the pet owner with ID {int} using details from {s
 
 When('the user tries to update the pet owner with ID {string} using details from {string}', async function (ownerId, filePath) {
   const fileContent = await fs.readFile(filePath, 'utf-8');
-  const jsonData = JSON.parse(fileContent);
-  console.log('Trying to update pet owner ID:', ownerId, 'with details:', jsonData);
+  const body = JSON.parse(fileContent);
+  console.log('Trying to update pet owner ID:', ownerId, 'with details:', body);
   this.response = await this.apiContext.put(`/owners/${ownerId}`, {
-    data: jsonData,
+    data: body,
     headers: { 'Content-Type': 'application/json' }
   });
   console.log('Result received:', this.response.status());
@@ -106,7 +106,7 @@ When('the user tries to update the pet owner with ID {string} using details from
 When('the user tries to update the pet owner with ID {int} without providing any details', async function (ownerId) {
   console.log('Trying to update pet owner ID:', ownerId, 'without any details');
   this.response = await this.apiContext.put(`/owners/${ownerId}`, {
-    data: null, // Sin cuerpo
+    data: null,
     headers: { 'Content-Type': 'application/json' }
   });
   console.log('Result received:', this.response.status());
@@ -114,10 +114,10 @@ When('the user tries to update the pet owner with ID {int} without providing any
 
 When('the user tries to update the pet owner with an empty ID using details from {string}', async function (filePath) {
   const fileContent = await fs.readFile(filePath, 'utf-8');
-  const jsonData = JSON.parse(fileContent);
-  console.log('Trying to update pet owner with an empty ID using details:', jsonData);
-  this.response = await this.apiContext.put('/owners/', { // Sin ID, termina en "/"
-    data: jsonData,
+  const body = JSON.parse(fileContent);
+  console.log('Trying to update pet owner with an empty ID using details:', body);
+  this.response = await this.apiContext.put('/owners/', { 
+    data: body,
     headers: { 'Content-Type': 'application/json' }
   });
   console.log('Result received:', this.response.status());
