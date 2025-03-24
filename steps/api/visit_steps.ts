@@ -28,12 +28,12 @@ Given(
     // Initial step
     this.apiContext = await request.newContext({ baseURL: process.env.BASE_URL || config.use?.baseURL });
 
-    // Step 1: Fetch owner details
+    // Step 1: Get owner details
     const ownerResponse = await this.apiContext.get(`/owners/${ownerId}`, {
       headers: { 'Content-Type': 'application/json' },
     });
 
-    expect(ownerResponse.ok(), `Failed to fetch owner with ID ${ownerId}: ${ownerResponse.statusText()}`).toBe(true);
+    expect(ownerResponse.ok(), `Failed to get owner with ID ${ownerId}: ${ownerResponse.statusText()}`).toBe(true);
 
     const ownerData = (await ownerResponse.json()) as OwnerData;
     petOwner = `${ownerData.firstName} ${ownerData.lastName}`;

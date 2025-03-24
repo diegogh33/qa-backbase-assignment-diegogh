@@ -1,16 +1,18 @@
-import { After, Before, ITestCaseHookParameter, setWorldConstructor } from '@cucumber/cucumber';
+import { After, Before, setWorldConstructor } from '@cucumber/cucumber';
 import { chromium, Browser, Page } from '@playwright/test';
 import config from '../playwright.config';
 
-// Define the World interface
+// Define the World interface used in Cucumber hooks and steps
 interface PetClinicWorld {
   page: Page;
 }
 
+// This class will be instantiated for each scenario and shared across its steps
 class CustomWorld {
   page!: Page;
 }
 
+// Register the World constructor so Cucumber knows how to create a new context ("this") for each scenario
 setWorldConstructor(CustomWorld);
 
 let browser: Browser;
@@ -31,10 +33,13 @@ Before(async function (this: PetClinicWorld) {
     viewport: config.use?.viewport ?? { width: 1280, height: 720 },
   };
   const context = await browser.newContext(contextOptions);
+
+  // Save the page in the World context so it can be used in steps via "this.page"
   this.page = await context.newPage();
 });
 
-After(async function (this: PetClinicWorld, testCase: ITestCaseHookParameter) {
+After(async function (this: PetClinicWorld) {
+  // Clean up the browser after each scenario
   if (browser) {
     await browser.close();
   }
