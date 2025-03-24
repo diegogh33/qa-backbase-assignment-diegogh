@@ -2,9 +2,9 @@ name: Run API Tests
 
 on:
   push:
-    branches: [main]
+    branches: [main, Backbase_QA_Assignment]
   pull_request:
-    branches: [main]
+    branches: [main, Backbase_QA_Assignment]
 
 jobs:
   test:
