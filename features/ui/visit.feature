@@ -1,4 +1,3 @@
-
 Feature: PetClinic Visit Management
 
   Scenario: Verifying a new visit added for an owner’s pet by api request
