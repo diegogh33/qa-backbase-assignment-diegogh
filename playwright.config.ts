@@ -1,19 +1,18 @@
 import { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
-  testDir: './features',
-  timeout: 30000,
   use: {
     baseURL: 'http://localhost:8080',
-    browserName: 'chromium',
-    headless: false, // Modo visible
+    headless: true, // Browser visible
+    viewport: { width: 1840, height: 1440 },  // Set to null to use browser's default/maximized size or something like { width: 1280, height: 720 },
+    navigationTimeout: 17000,
     launchOptions: {
-      slowMo: 500, // Opcional: ralentiza las acciones 500ms para que las veas
-    },
+      slowMo: 500, // Optional: slows down operations
+      // args: ['--start-maximized'], // Chromium arg to start maximized
+    }
   },
-  // Añadimos esta línea para forzar que Cucumber use Playwright como test runner
-  fullyParallel: false,
-  workers: 1, // Para que las pruebas vayan de una en una y sean más fáciles de seguir
+  retries: 1,
+  timeout: 26000,
 };
 
 export default config;

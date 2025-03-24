@@ -1,9 +1,10 @@
 module.exports = {
   default: {
-    require: ["./support/world.ts", "./support/hooks.ts", "./steps/**/*.ts"],
+    // require: ["./support/world.ts", "./support/hooks.ts", "./steps/**/*.ts"],
     format: ["progress", "json:reports/cucumber-report.json"],
+    defaultTimeout: 10000, 
     worldParameters: {
-      browser: "chromium", // Puedes cambiar a 'firefox' o 'webkit'
+      browser: "chromium", 
     },
     requireModule: ["ts-node/register"],
   },
