@@ -123,22 +123,11 @@ When('the user tries to update the pet owner with an empty ID using details from
   console.log('Result received:', this.response.status());
 });
 
-Then('the operation fails with status code {int} because deletion is not supported', async function (statusCode) {
+Then('the operation fails with status code {int}', async function (statusCode) {
   const body = await this.response.json();
   console.log('Response:', body);
   expect(this.response.status()).toBe(statusCode);
   expect(body.message).toBe("Request method 'DELETE' not supported");
-});
-
-Then('the response includes the details of the new pet owner named {string}', async function (firstName) {
-  const body = await this.response.json();
-  console.log('Response:', body);
-  expect(body).toHaveProperty('id');
-  expect(body.firstName).toBe(firstName);
-  expect(body.lastName).toBe('Perez');
-  expect(body.address).toBe('123 Main St');
-  expect(body.city).toBe('Madrid');
-  expect(body.telephone).toBe('912345678');
 });
 
 Then('the response contains a list of pet owners', async function () {
@@ -169,37 +158,7 @@ Then('the response includes the updated details of the pet owner named {string}'
   expect(body.telephone).toBe('934567890');
 });
 
-Then('the action fails with confirmation code {int} because the owner does not exist', async function (statusCode) {
-  const body = await this.response.text(); // Usamos text() por si no hay JSON
-  console.log('Response:', body);
-  expect(this.response.status()).toBe(statusCode);
-});
-
-Then('the action fails with confirmation code {int} because the ID is invalid', async function (statusCode) {
-  const body = await this.response.text();
-  console.log('Response:', body);
-  expect(this.response.status()).toBe(statusCode);
-});
-
-Then('the action fails with confirmation code {int} because the first name is missing', async function (statusCode) {
-  const body = await this.response.text(); // Usamos text() por si no hay JSON
-  console.log('Response:', body);
-  expect(this.response.status()).toBe(statusCode);
-});
-
-Then('the action fails with confirmation code {int} because the last name is missing', async function (statusCode) {
-  const body = await this.response.text();
-  console.log('Response:', body);
-  expect(this.response.status()).toBe(statusCode);
-});
-
-Then('the action fails with confirmation code {int} because no details were provided', async function (statusCode) {
-  const body = await this.response.text();
-  console.log('Response:', body);
-  expect(this.response.status()).toBe(statusCode);
-});
-
-Then('the action fails with confirmation code {int} because no ID was provided', async function (statusCode) {
+Then('the action fails with status code {int}', async function (statusCode) {
   const body = await this.response.text();
   console.log('Response:', body);
   expect(this.response.status()).toBe(statusCode);
@@ -210,5 +169,4 @@ Then('the response indicates there is no owner with that id', async function () 
   expect(body.error).toBe('Internal Server Error');
   expect(body.message).toBe('No value present');
   expect(body).toHaveProperty('path');
-
 });
