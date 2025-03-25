@@ -8,12 +8,12 @@ const options = {
     scenarioTimestamp: true,
     launchReport: true,
     metadata: {
-        "Test Environment": "QA assigment",
-        "Browser": "UI - API Testing",
+        "Test Environment": "QA assigment - UI/API Testing",
+        "Browser": "Chromium",
         "Platform": process.platform,
         "Executed": "Local"
     }
 };
 
 reporter.generate(options);
-console.log('✅ Reporte generado en reports/cucumber-report.html');
+console.log('✅ Report generated in reports/cucumber-report.html');
