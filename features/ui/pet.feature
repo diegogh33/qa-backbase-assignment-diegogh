@@ -11,7 +11,7 @@ Feature: PetClinic Pet Management
     Then the user sees "Bolita" listed as a pet for "Jon Snow"
 
 
-  @DEFECT
+  @BUG
   Scenario: Attempting to add a pet with a future birth date
     Given the PetClinic application is open
     When the user looks for "Maria Escobito" in the owners table

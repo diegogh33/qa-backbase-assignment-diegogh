@@ -1,6 +1,6 @@
 Feature: Pet Service API - Creation
 
-    @DEFECT
+    @BUG
     Scenario: Creating a new pet for an owner
         Given the service is ready to use
         When the user adds a new pet for owner with ID 1 with the "pet_create_body.json" details

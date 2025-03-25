@@ -1,6 +1,6 @@
 Feature: PetClinic Owner Search
 
-    @DEFECT
+    @BUG
     Scenario: Searching for an existing owner
         Given the PetClinic application is open
         When the user looks for "George Franklin" in the owners table
