@@ -21,23 +21,33 @@ The test framework uses a Behavior-Driven Development (BDD) approach to ensure c
 
 ```bash
 rnd-qa-assignment-diegogh33/
-├── .github/                # GitHub Actions workflows
-├── config/                 # Configuration files
-├── data/                   # JSON payloads for API tests
-├── features/               # Gherkin feature files (UI & API)
-│   ├── api/                # API features
-│   └── ui/                 # UI features
-├── helpers/                # Utility functions
-├── manual-tests-cases/     # Manual test case documentation
-├── reports/                # Test reports (HTML/JSON)
-├── steps/                  # Step definitions (UI & API)
-│   ├── api/                # API steps
-│   └── ui/                 # UI tests
-├── support/                # Hooks, World, reporting logic
-├── docker-compose.yml      # Docker configuration
-├── playwright.config.ts    # Playwright config file
-├── package.json            # Project metadata and scripts
-└── tsconfig.json           # TypeScript config
+├── .github/                      # GitHub Actions workflows
+│   └── workflows/                # CI/CD pipelines
+├── config/                       # Configuration files
+├── data/                         # JSON payloads for API tests
+├── features/                     # Gherkin feature files (UI & API)
+│   ├── api/                      # API features
+│   └── ui/                       # UI features
+├── helpers/                      # Utility files for locators and schemas
+│   ├── locators/                 # UI element selectors
+│   └── schemas/                  # JSON schemas for API response validation
+├── manual-tests-cases/           # Manual test case documentation in Excel format
+├── reports/                      # Test reports (HTML/JSON)
+├── steps/                        # Step definitions (UI & API)
+│   ├── api/                      # API steps
+│   └── ui/                       # UI tests
+├── support/                      # Hooks and utilities for test execution
+│   ├── generate-report.ts        # Script for generating test reports
+│   └── hooks.ts                  # Cucumber hooks for setup/teardown logic
+├── cucumber.js                   # Cucumber configuration file
+├── docker-compose.yml            # Docker configuration
+├── openapi.yml                   # OpenAPI specification for the tested API
+├── Overall Evaluation Report.pdf # Evaluation report provided with the project
+├── package-lock.json             # Automatically generated dependency tree (NPM)
+├── package.json                  # Project metadata and scripts
+├── playwright.config.ts          # Playwright config file
+├── README.md                     # Project documentation
+└── tsconfig.json                 # TypeScript config
 ```
 
 ---
