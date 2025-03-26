@@ -1,0 +1,28 @@
+{
+  "name": "diegogarrido",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test_all": "npm run test_UI && npm run test_API",
+    "test_UI": "npx cucumber-js features/ui --require ./support/hooks.ts --require \"./steps/ui/*.ts\" --format json:reports/cucumber-report.json",
+    "test_API": "npx cucumber-js features/api --require-module ts-node/register --require \"./steps/api/*.ts\" --format json:reports/cucumber-report.json",
+    "report": "ts-node ./support/generate-report.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.5.4"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^11.2.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "cucumber": "^6.0.7",
+    "cucumber-html-reporter": "^7.2.0",
+    "playwright": "^1.51.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
+}
